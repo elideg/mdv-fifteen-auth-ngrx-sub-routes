@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-center mt-3">
+  <button mat-button [routerLink]="['/shoes']">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <mat-card class="col-6 custom-background" *ngIf="shoes$ | async as shoe">
+    <mat-card-header class="align-self-center">
+      <mat-card-title>
+        <h3 mat-line>Shoe Id</h3>
+        <p>{{shoe.id}}</p>
+        <h3 mat-line>Shoe Title</h3>
+        <p>{{shoe.title}}</p>
+        <h3 mat-line>Shoe Details</h3>
+        <p>{{shoe.details}}</p>
+        <h3 mat-line>Shoe Coolness Level</h3>
+        <p>{{shoe.coolLevel}}</p>
+      </mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>

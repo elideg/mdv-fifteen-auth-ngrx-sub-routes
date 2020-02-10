@@ -1,0 +1,16 @@
+<div class="container d-flex mt-3">
+  <div class="col-6">
+    <mdv-fifteen-shoes-list [shoes]="shoes$ | async"
+                          (selected)="selectShoe($event)"
+                          (deleted)="deleteShoe($event)">
+    </mdv-fifteen-shoes-list>
+  </div>
+
+  <div class="col-6">
+    <mdv-fifteen-shoes-details [shoe]="selectedShoe$ | async"
+                              [form]="form"
+                              (saved)="saveShoe($event)"
+                              (cancelled)="cancel()">
+    </mdv-fifteen-shoes-details>
+  </div>
+</div>

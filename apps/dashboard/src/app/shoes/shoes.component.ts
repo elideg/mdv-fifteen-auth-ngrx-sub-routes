@@ -22,7 +22,7 @@ export class ShoesComponent implements OnInit {
   ngOnInit() {
     this.initForm();
     this.shoeFacade.loadShoes();
-    this.selectShoe({ id: null } as Shoe);
+    this.form.reset();
   }
 
   selectShoe(shoe: Shoe) {
@@ -30,19 +30,30 @@ export class ShoesComponent implements OnInit {
     this.shoeFacade.selectShoe(shoe.id);
   }
 
-  cancel() {
+  resetShoes() {
     this.selectShoe({ id: null } as Shoe);
     this.form.reset();
+
+    Object.keys(this.form.controls).forEach((key) => {
+      this.form.get(key).setErrors(null);
+    });
   }
 
-  saveShoe(formDirective: FormGroupDirective) {
-    if(this.form.invalid) return;
-    if(this.form.value.id) {
-      this.shoeFacade.updateShoe(this.form.value);
-      this.selectShoe({ id: null } as Shoe);
+  updateShoe() {
+    this.shoeFacade.updateShoe(this.form.value);
+    this.resetShoes();
+  }
+
+  createShoe() {
+    this.shoeFacade.createShoe(this.form.value);
+    this.resetShoes();
+  }
+
+  saveShoe(shoe: Shoe) {
+    if(shoe.id) {
+      this.updateShoe();
     } else {
-      this.shoeFacade.createShoe(this.form.value);
-      this.selectShoe({ id: null } as Shoe);
+      this.createShoe();
     }
   }
 
@@ -52,10 +63,10 @@ export class ShoesComponent implements OnInit {
 
   initForm() {
     this.form = this.fb.group({
-      id: [''],
+      id: null,
       title: ['', Validators.compose([Validators.required])],
       details: ['', Validators.compose([Validators.required])],
-      coolLevel: ['']
+      coolLevel: null
     })
   }
 

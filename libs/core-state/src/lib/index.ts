@@ -10,6 +10,6 @@ export const reducers: ActionReducerMap<AppState> = {
   shoes: fromShoes.reducer,
 };
 
-//---------------------------------------
-// Common Selectors
-//---------------------------------------
+export const defaultState: AppState = {
+  shoes: { ids: [] } as fromShoes.ShoesState
+}

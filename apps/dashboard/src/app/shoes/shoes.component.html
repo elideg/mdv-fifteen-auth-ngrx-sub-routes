@@ -10,7 +10,7 @@
     <mdv-fifteen-shoes-details [shoe]="selectedShoe$ | async"
                               [form]="form"
                               (saved)="saveShoe($event)"
-                              (cancelled)="cancel()">
+                              (cancelled)="resetShoes()">
     </mdv-fifteen-shoes-details>
   </div>
 </div>

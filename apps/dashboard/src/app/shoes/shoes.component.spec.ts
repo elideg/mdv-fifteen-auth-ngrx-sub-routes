@@ -123,7 +123,6 @@ describe('ShoesComponent', () => {
       component.saveShoe(testObject);
       expect(shoesFacade.updateShoe).toHaveBeenCalled();
     });
-
   });
 
   // 5: Reset Shoe

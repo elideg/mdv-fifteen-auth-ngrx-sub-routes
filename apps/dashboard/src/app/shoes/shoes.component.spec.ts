@@ -85,7 +85,7 @@ describe('ShoesComponent', () => {
       expect(shoesFacade.selectShoe).toHaveBeenCalledWith(testObject.id);
     });
 
-    it('should path form with selected shoe', () => {
+    it('should patch form with selected shoe', () => {
       component.form.patchValue(testObject);
       expect(component.form.value).toEqual(testObject)
     });
@@ -93,7 +93,7 @@ describe('ShoesComponent', () => {
 
   // 2: Delete Shoe methoed Test
   describe('#deleteShoe', () => {
-    it('should delete a computer', () => {
+    it('should delete a shoe', () => {
       jest.spyOn(shoesFacade, 'deleteShoe');
       component.deleteShoe(testObject);
       expect(shoesFacade.deleteShoe).toHaveBeenCalledWith(testObject);
@@ -146,10 +146,9 @@ describe('ShoesComponent', () => {
     });
 
     it('should reset form on update', () => {
-      jest.spyOn(component, 'resetShoes');
       component.form.patchValue(testObject);
       component.updateShoe();
-      expect(component.resetShoes).toHaveBeenCalled();
+      expect(component.form.value).toEqual(emptyTestObject);
     });
   });
 });

@@ -110,14 +110,20 @@ describe('ShoesComponent', () => {
     });
   });
 
-  // 4: Create Shoe
+  // 4: Save Shoe
   describe('#create', () => {
-    it('should create a shoe', () => {
+    it('should create a shoe if no id', () => {
       jest.spyOn(shoesFacade, 'createShoe');
-      component.form.patchValue(testObject);
-      component.createShoe();
-      expect(shoesFacade.createShoe).toHaveBeenCalledWith(testObject);
+      component.saveShoe(emptyTestObject);
+      expect(shoesFacade.createShoe).toHaveBeenCalled();
     });
+
+    it('should update a shoe if an id', () => {
+      jest.spyOn(shoesFacade, 'updateShoe');
+      component.saveShoe(testObject);
+      expect(shoesFacade.updateShoe).toHaveBeenCalled();
+    });
+
   });
 
   // 5: Reset Shoe

@@ -10,7 +10,7 @@ const BASE_URL = 'https://db-30x30.herokuapp.com'
 export class ShoeService {
 model = 'shoes'
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   getUrl() {
     return `${BASE_URL}/${this.model}`;
@@ -25,7 +25,7 @@ model = 'shoes'
   }
 
   create(shoe: Shoe) {
-    return this.httpClient.post(this.getUrl(), shoe);
+    return this.httpClient.post(this.getUrl(), shoe)
   }
 
   delete(shoe: Shoe) {

@@ -68,6 +68,7 @@ export class ShoesEffects {
         state: ShoesPartialState
       ) => {
         return this.shoesService.delete(action.shoe).pipe(
+          tap((res) => console.log(res)),
           map((shoe: Shoe) => shoesActions.shoeDeleted({ shoe })),
           tap(() => this.notify.notification('Successfully Deleted a Shoe')),
           tap(() => this.shoesFacade.loadShoes())

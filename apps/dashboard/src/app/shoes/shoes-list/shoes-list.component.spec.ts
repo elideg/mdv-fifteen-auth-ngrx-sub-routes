@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShoesListComponent } from './shoes-list.component';
+import { MaterialModule } from '@mdv-fifteen/material';
+import { RouterModule } from '@angular/router';
 
 describe('ShoesListComponent', () => {
   let component: ShoesListComponent;
@@ -8,7 +10,11 @@ describe('ShoesListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShoesListComponent ]
+      declarations: [ ShoesListComponent ],
+      imports: [
+        MaterialModule,
+        RouterModule
+      ]
     })
     .compileComponents();
   }));

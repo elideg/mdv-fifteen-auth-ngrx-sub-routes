@@ -19,7 +19,7 @@ describe('ShoesComponent', () => {
   let store: MockStore<any>;
   const formBuilder: FormBuilder = new FormBuilder();
   const testObject: Shoe = {
-    id: "1",
+    id: 1,
     title: "Mock Title",
     details: "Mock Details",
     coolLevel: 69

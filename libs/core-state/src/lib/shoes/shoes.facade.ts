@@ -17,27 +17,23 @@ export class ShoesFacade {
 
   constructor(private store: Store<fromShoes.ShoesPartialState>) {}
 
-  selectShoe(selectedShoeId: string) {
-    this.dispatch(shoesActions.shoeSelected({ selectedShoeId }));
+  selectShoe(selectedShoeId: number) {
+    this.store.dispatch(shoesActions.shoeSelected({ selectedShoeId }));
   }
 
   loadShoes() {
-    this.dispatch(shoesActions.loadShoes());
+    this.store.dispatch(shoesActions.loadShoes());
   }
 
   createShoe(shoe: Shoe) {
-    this.dispatch(shoesActions.createShoe({ shoe }));
+    this.store.dispatch(shoesActions.createShoe({ shoe }));
   }
 
   updateShoe(shoe: Shoe) {
-    this.dispatch(shoesActions.updateShoe({ shoe }));
+    this.store.dispatch(shoesActions.updateShoe({ shoe }));
   }
 
   deleteShoe(shoe: Shoe) {
-    this.dispatch(shoesActions.deleteShoe({ shoe }));
-  }
-
-  private dispatch(action: Action) {
-    this.store.dispatch(action);
+    this.store.dispatch(shoesActions.deleteShoe({ shoe }));
   }
 }

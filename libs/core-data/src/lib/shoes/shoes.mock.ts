@@ -1,6 +1,6 @@
-export const mockShoePayload = { id: '3', title: 'example title', details: 'example details', coolLevel: 130 };
+export const mockShoePayload = { id: 3, title: 'example title', details: 'example details', coolLevel: 130 };
 
-export const mockUpdatedShoePayload = { id: '3', title: 'title', details: 'details', coolLevel: 50 };
+export const mockUpdatedShoePayload = { id: 3, title: 'title', details: 'details', coolLevel: 50 };
 
 export const mockServiceResponse = [
   {

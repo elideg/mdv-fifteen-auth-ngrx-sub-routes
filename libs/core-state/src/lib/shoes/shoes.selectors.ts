@@ -9,7 +9,6 @@ import {
 
 // Lookup the 'Shoes' feature state managed by NgRx
 export const selectShoesState = createFeatureSelector<
-  ShoesPartialState,
   ShoesState
 >(SHOES_FEATURE_KEY);
 

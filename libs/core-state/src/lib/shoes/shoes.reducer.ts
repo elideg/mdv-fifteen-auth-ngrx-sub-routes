@@ -9,6 +9,7 @@ export const SHOES_FEATURE_KEY = 'shoes';
 export interface ShoesState extends EntityState<Shoe> {
   selectedShoeId?: string | number;
   isLoading: boolean;
+  error: any;
 }
 
 export interface ShoesPartialState {
@@ -20,16 +21,20 @@ export const shoesAdapter: EntityAdapter<Shoe> = createEntityAdapter<Shoe>();
 export const initialState: ShoesState = shoesAdapter.getInitialState({
   // set initial required properties
   selectedShoeId: null,
-  isLoading: false
+  isLoading: false,
+  error: null
 });
 
-const shoesReducer = createReducer(
+export const shoesReducer = createReducer(
   initialState,
   on(shoesActions.shoeSelected, (state, { selectedShoeId }) =>
     Object.assign({}, state, { selectedShoeId })
   ),
   on(shoesActions.shoesLoaded, (state, { shoes }) =>
-    shoesAdapter.addAll(shoes, { ...state, isLoading: false })
+    shoesAdapter.addAll(shoes, { ...state, isLoading: false, error: null })
+  ),
+  on(shoesActions.loadShoesError, (state, { error }) =>
+    ({ ...state, isLoading: false, error })
   ),
   on(shoesActions.shoeCreated, (state, { shoe }) =>
     shoesAdapter.addOne(shoe, { ...state, isLoading: false })

@@ -1,5 +1,5 @@
 export interface Shoe {
-  id: string,
+  id: number,
   title: string,
   details: string,
   coolLevel: number

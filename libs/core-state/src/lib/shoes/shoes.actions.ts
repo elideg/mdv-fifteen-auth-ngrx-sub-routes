@@ -4,15 +4,22 @@ import { Shoe } from '@mdv-fifteen/core-data';
 
 export const shoeSelected = createAction(
   '[SHOE] Shoe Selected',
-  props<{ selectedShoeId: string }>()
+  props<{ selectedShoeId: number }>()
 );
 
 // Load Actions
-export const loadShoes = createAction('[SHOE] Load Shoes');
+export const loadShoes = createAction(
+  '[SHOE] Load Shoes'
+);
 
 export const shoesLoaded = createAction(
   '[SHOE] Shoes Loaded',
   props<{ shoes: Shoe[] }>()
+);
+
+export const loadShoesError = createAction(
+  '[SHOE] Load Shoes Error',
+  props<{ error: any }>()
 );
 
 // Create Actions
@@ -26,6 +33,11 @@ export const shoeCreated = createAction(
   props<{ shoe: Shoe }>()
 );
 
+export const createShoeError = createAction(
+  '[SHOE] Create Shoe Error',
+  props<{ error: any }>()
+);
+
 // Update Actions
 export const updateShoe = createAction(
   '[SHOE] Update Shoe',
@@ -37,6 +49,11 @@ export const shoeUpdated = createAction(
   props<{ shoe: Shoe }>()
 );
 
+export const updateShoeError = createAction(
+  '[SHOE] Update Shoe Error',
+  props<{ error: any }>()
+);
+
 // Delete Actions
 export const deleteShoe = createAction(
   '[SHOE] Delete Shoe',
@@ -46,4 +63,9 @@ export const deleteShoe = createAction(
 export const shoeDeleted = createAction(
   '[SHOE] Shoe Deleted',
   props<{ shoe: Shoe }>()
+);
+
+export const deleteShoeError = createAction(
+  '[SHOE] Delete Shoe Error',
+  props<{ error: any }>()
 );

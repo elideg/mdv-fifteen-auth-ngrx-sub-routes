@@ -3,9 +3,10 @@
 // import { LoginComponent } from './login.component';
 // import { MaterialModule } from 'libs/material/src/lib/material.module';
 // import { FormBuilder } from '@angular/forms';
-// import { Router } from '@angular/router';
-// import { MatSnackBar } from '@angular/material';
-// import { CommonModule } from '@angular/common';
+// import { RouterModule } from '@angular/router';
+// import { MatSnackBarModule, MatSnackBar } from '@angular/material';
+// import { CommonModule, APP_BASE_HREF } from '@angular/common';
+// import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 // describe('LoginComponent', () => {
 //   let component: LoginComponent;
@@ -18,19 +19,18 @@
 //       imports: [
 //         CommonModule,
 //         MaterialModule,
+//         HttpClientTestingModule,
+//         RouterModule.forRoot([]),
+//         MatSnackBarModule,
 //       ],
 //       providers: [
-//         MatSnackBar,
-//         { 
-//           provide: Router,
-//           useValue: {
-//             router: jest.fn()
-//           }
-//         },
-//         { provide: FormBuilder, useValue: formBuilder }
+//         // MatSnackBar,
+//         { provide: FormBuilder, useValue: formBuilder },
+//         { provide: APP_BASE_HREF, useValue: '/' }
 //       ]
 //     })
 //     .overrideTemplate(LoginComponent, '')
+//     .compileComponents();
 //   }));
 
 //   beforeEach(() => {
@@ -43,8 +43,8 @@
 //     expect(component).toBeTruthy();
 //   });
 // });
-describe('LoginComponent', () => {
-  it('should work', () => {
-    expect(true).toBeTruthy()
+describe('should work', () => {
+  it('should test', () => {
+    expect(true).toBeTruthy();
   })
 })
